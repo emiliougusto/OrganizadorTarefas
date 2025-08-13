@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OptiPlus - Organizador de Tarefas</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/CSS/Index.css" />
+  </head>
+  <body>
+    <div class="header-section">
+      <div class="container">
+        <div class="text-center">
+          <h1><i class="bi bi-check2-square"></i> OptiPlus</h1>
+          <p class="subtitle">Organize suas tarefas com eficiência e estilo</p>
+        </div>
+        <nav>
+          <div class="nav-direita">
+            <a href="/HTML/login.html" class="menu-link"><i class="fa-regular fa-user"></i></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card main-card">
+            <div class="card-header">
+              <h2><i class="bi bi-list-task"></i> Organizador de Tarefas</h2>
+              <p class="welcome-text">
+                Adicione, gerencie e complete suas tarefas diárias
+              </p>
+            </div>
+
+            <div class="form-section">
+              <form id="form-tarefa">
+                <div
+                  class="row g-2 mb-3 justify-content-center align-items-center"
+                >
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      id="tarefa-input"
+                      class="form-control"
+                      placeholder="Digite sua tarefa aqui..."
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="date"
+                      id="data-limite"
+                      class="form-control"
+                      title="Data limite (opcional)"
+                    />
+                  </div>
+                  <div class="col-md-auto">
+                    <button type="submit" class="btn btn-add">
+                      <i class="bi bi-plus-circle"></i> Adicionar
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="filters-section">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-4">
+                  <label class="form-label mb-1 small">Filtrar por:</label>
+                  <select id="filter-status" class="form-select filter-control">
+                    <option value="all">Todas</option>
+                    <option value="pending">A fazer</option>
+                    <option value="completed">Concluídas</option>
+                    <option value="overdue">Atrasadas</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label mb-1 small">Ordenar por:</label>
+                  <select id="sort-by" class="form-select filter-control">
+                    <option value="newest">Mais recentes</option>
+                    <option value="oldest">Mais antigas</option>
+                    <option value="due-asc">Data limite (próximas)</option>
+                    <option value="due-desc">Data limite (distantes)</option>
+                    <option value="alphabetical">Alfabética (A-Z)</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label mb-1 small">&nbsp;</label>
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary btn-sm w-100"
+                    onclick="clearAllTasks()"
+                  >
+                    <i class="bi bi-trash"></i> Limpar tudo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="tasks-section">
+              <div class="task-stats row" id="task-stats">
+                <div class="col-3 stat-item">
+                  <span class="stat-number" id="total-tasks">0</span>
+                  <div class="stat-label">Total</div>
+                </div>
+                <div class="col-3 stat-item">
+                  <span class="stat-number" id="completed-tasks">0</span>
+                  <div class="stat-label">Concluídas</div>
+                </div>
+                <div class="col-3 stat-item">
+                  <span class="stat-number" id="pending-tasks">0</span>
+                  <div class="stat-label">Pendentes</div>
+                </div>
+                <div class="col-3 stat-item">
+                  <span class="stat-number" id="overdue-tasks">0</span>
+                  <div class="stat-label">Atrasadas</div>
+                </div>
+              </div>
+
+              <div id="lista-tarefas"></div>
+
+              <div id="empty-state" class="empty-state">
+                <i class="bi bi-clipboard-check"></i>
+                <h4>Nenhuma tarefa ainda</h4>
+                <p>Comece adicionando sua primeira tarefa acima</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="checkbox" class="checkbox" id="chk" />
+      <label class="label" for="chk">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+      </label>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/Script.js"></script>
+  </body>
+</html>
