@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OptiPlus - Cadastro</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/CSS/Cadastro.css" />
+  </head>
+  <body>
+    <a href="index.html" class="home-btn" title="Voltar ao início">
+      <i class="bi bi-house-fill"></i>
+    </a>
+
+    <div>
+      <input type="checkbox" class="checkbox" id="chk" />
+      <label class="label" for="chk">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+      </label>
+    </div>
+
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header cadastro">
+          <h1><i class="bi bi-person-plus"></i> OptiPlus</h1>
+          <p>Crie sua conta</p>
+        </div>
+
+        <div class="auth-form">
+          <form id="cadastroForm" action="login.html">
+            <div class="mb-3">
+              <label for="nome" class="form-label">
+                <i class="bi bi-person"></i> Nome Completo
+              </label>
+              <input
+                type="text"
+                class="form-control cadastro"
+                id="nome"
+                placeholder="Digite seu nome completo"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">
+                <i class="bi bi-envelope"></i> E-mail
+              </label>
+              <input
+                type="email"
+                class="form-control cadastro"
+                id="email"
+                placeholder="Digite seu e-mail"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">
+                <i class="bi bi-lock"></i> Senha
+              </label>
+              <input
+                type="password"
+                class="form-control cadastro"
+                id="password"
+                placeholder="Digite uma senha segura"
+                required
+                minlength="6"
+              />
+              <div class="password-strength">
+                <div class="strength-bar">
+                  <div class="strength-fill" id="strengthBar"></div>
+                </div>
+                <div id="strengthText">Digite uma senha</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">
+                <i class="bi bi-lock-fill"></i> Confirmar Senha
+              </label>
+              <input
+                type="password"
+                class="form-control cadastro"
+                id="confirmPassword"
+                placeholder="Confirme sua senha"
+                required
+              />
+              <div id="passwordMatch" class="mt-1 small"></div>
+            </div>
+
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="terms"
+                required
+              />
+              <label class="form-check-label" for="terms">
+                Aceito os
+                <a href="#" class="link-auth cadastro">termos de uso</a> e
+                <a href="#" class="link-auth cadastro"
+                  >política de privacidade</a
+                >
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-auth cadastro" id="submitBtn">
+              <i class="bi bi-person-plus-fill"></i> Criar conta
+            </button>
+          </form>
+
+          <div class="divider">
+            <span>ou</span>
+          </div>
+
+          <a href="login.html" class="btn btn-secondary-auth login">
+            <i class="bi bi-box-arrow-in-right"></i> Já tenho uma conta
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/cadastro.js"></script>
+  </body>
+</html>

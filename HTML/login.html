@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OptiPlus - Login</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/CSS/Login.css" />
+  </head>
+  <body>
+    <a href="index.html" class="home-btn" title="Voltar ao início">
+      <i class="bi bi-house-fill"></i>
+    </a>
+
+    <div>
+      <input type="checkbox" class="checkbox" id="chk" />
+      <label class="label" for="chk">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+      </label>
+    </div>
+
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1><i class="bi bi-check2-square"></i> OptiPlus</h1>
+          <p>Entre na sua conta</p>
+        </div>
+
+        <div class="auth-form">
+          <form id="loginForm" action="Index.html">
+            <div class="mb-3">
+              <label for="email" class="form-label">
+                <i class="bi bi-envelope"></i> E-mail
+              </label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Digite seu e-mail"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">
+                <i class="bi bi-lock"></i> Senha
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Digite sua senha"
+                required
+              />
+            </div>
+
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="remember" />
+              <label class="form-check-label" for="remember">
+                Lembrar-me
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-auth">
+              <i class="bi bi-box-arrow-in-right"></i> Entrar
+            </button>
+          </form>
+
+          <div class="divider">
+            <span>ou</span>
+          </div>
+
+          <a href="cadastro.html" class="btn btn-secondary-auth">
+            <i class="bi bi-person-plus"></i> Criar nova conta
+          </a>
+
+          <div class="text-center mt-3">
+            <a href="#" class="link-auth">Esqueceu sua senha?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/login.js"></script>
+  </body>
+</html>

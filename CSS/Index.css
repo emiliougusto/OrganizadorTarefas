@@ -38,31 +38,6 @@ body {
   margin-top: 0.4rem;
 }
 
-.nav-direita {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-.nav-direita .menu-link {
-  background: var(--primary-gradient);
-  color: white;
-  border-radius: 8px;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-}
-
-.nav-direita .menu-link:hover {
-  background: var(--secondary-gradient);
-  transform: scale(1.05);
-}
-
 .main-card {
   background: white;
   border-radius: var(--border-radius);
@@ -248,52 +223,72 @@ body {
   padding: 2rem 1rem;
   color: #777;
 }
+.nav-direita {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
 
+.nav-direita:hover {
+  background: var(--secondary-gradient);
+  transform: scale(1.05);
+  color: white;
+}
 body.dark {
   background: #292c35;
 }
 
-body.dark .form-control{
-    background-color: #111;
-    color: #ffffff;
-    
+body.dark .form-control {
+  background-color: #111;
+  color: #ffffff;
 }
 
 body.dark input::placeholder {
   color: #ffffff;
 }
 body.dark .form-section,
-body.dark .main-card{
-    background-color: #323031;
-    color: #ffffff;
+body.dark .main-card {
+  background-color: #323031;
+  color: #ffffff;
 }
-body.dark .empty-state{
-
-    color: #ffffff;
-}
-
-body.dark .filters-section{
-    background-color: #323031;
-    color: #ffffff;
+body.dark .empty-state {
+  color: #ffffff;
 }
 
-body.dark .filter-status{
-    background-color: #111;
-    color: #ffffff;
+body.dark .filters-section {
+  background-color: #323031;
+  color: #ffffff;
 }
 
-body.dark .task-stats{
-    background-color: #111;
-    color: #ffffff;
+body.dark .filter-status {
+  background-color: #111;
+  color: #ffffff;
 }
 
-body.dark .task-item{
-    background-color: #323031;
-    color: #ffffff;
+body.dark .task-stats {
+  background-color: #111;
+  color: #ffffff;
 }
 
-body.dark .task-text{
-    color: #ffffff;
+body.dark .task-item {
+  background-color: #323031;
+  color: #ffffff;
+}
+
+body.dark .task-text {
+  color: #ffffff;
 }
 .checkbox {
   opacity: 0;
@@ -307,16 +302,15 @@ body.dark .task-text{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 5px;
-  position: relative;
+  position: fixed;
+  top: 20px;
+  right: 20px;
   height: 26px;
   width: 50px;
   transform: scale(1.5);
-
+  z-index: 1000;
 }
-
-
 .label .ball {
   background-color: #fff;
   border-radius: 50%;

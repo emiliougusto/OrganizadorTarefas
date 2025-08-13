@@ -1,0 +1,357 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+  --secondary-gradient: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  --success-gradient: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  --warning-gradient: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --border-radius: 10px;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+body {
+  background: linear-gradient(135deg, #ecf0f1 0%, #dfe6e9 100%);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.auth-container {
+  max-width: 500px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.auth-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-header {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2.2rem;
+}
+
+.auth-header p {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+.auth-form {
+  padding: 2rem;
+}
+
+.form-control {
+  border: 2px solid #e0e6ed;
+  border-radius: 8px;
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.form-control:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+  outline: none;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.btn-auth {
+  width: 100%;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.btn-auth:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(26, 188, 156, 0.3);
+  color: white;
+}
+
+.btn-auth:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary-auth {
+  width: 100%;
+  background: var(--secondary-gradient);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-secondary-auth.login {
+  background: var(--primary-gradient);
+}
+
+.btn-secondary-auth:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 15px rgba(243, 156, 18, 0.3);
+  color: white;
+}
+
+.btn-secondary-auth.login:hover {
+  box-shadow: 0 3px 15px rgba(26, 188, 156, 0.3);
+}
+
+.link-auth {
+  color: #1abc9c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.link-auth:hover {
+  color: #16a085;
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e0e6ed;
+}
+
+.divider span {
+  background: white;
+  padding: 0 1rem;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.strength-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: #e0e6ed;
+  margin: 0.25rem 0;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.strength-weak {
+  background: #e74c3c;
+  width: 25%;
+}
+.strength-fair {
+  background: #f39c12;
+  width: 50%;
+}
+.strength-good {
+  background: #f1c40f;
+  width: 75%;
+}
+.strength-strong {
+  background: #27ae60;
+  width: 100%;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+body.dark .auth-card {
+  background-color: #323031;
+  border: 1px solid #444;
+}
+
+body.dark .form-control {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border-color: #555;
+}
+
+body.dark .form-control::placeholder {
+  color: #aaa;
+}
+
+body.dark .form-control:focus {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+body.dark .form-label {
+  color: #ffffff;
+}
+
+body.dark .divider span {
+  background: #323031;
+  color: #aaa;
+}
+
+body.dark .divider::before {
+  background: #555;
+}
+
+body.dark .strength-bar {
+  background: #555;
+}
+
+body.dark .form-check-label {
+  color: #ffffff;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: 26px;
+  width: 50px;
+  transform: scale(1.5);
+  z-index: 1000;
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.home-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.home-btn:hover {
+  background: var(--secondary-gradient);
+  transform: scale(1.05);
+  color: white;
+}
+
+@media (max-width: 576px) {
+  .auth-container {
+    padding: 0 0.5rem;
+  }
+
+  .auth-form {
+    padding: 1.5rem;
+  }
+
+  .auth-header {
+    padding: 1.5rem;
+  }
+
+  .auth-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .label {
+    transform: scale(1.2);
+  }
+
+  .home-btn {
+    width: 40px;
+    height: 40px;
+  }
+}

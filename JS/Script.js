@@ -9,10 +9,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initApp() {
+  loadTasksFromStorage();
   bindEvents();
   updateDisplay();
   addToastStyles();
   setMinDate();
+}
+
+function loadTasksFromStorage() {
+  const savedTasks = localStorage.getItem("optiplus_tasks");
+  const savedCounter = localStorage.getItem("optiplus_task_counter");
+
+  if (savedTasks) {
+    try {
+      const parsedTasks = JSON.parse(savedTasks);
+      tasks = parsedTasks.map((task) => ({
+        ...task,
+        createdAt: new Date(task.createdAt),
+        dueDate: task.dueDate ? new Date(task.dueDate) : null,
+      }));
+    } catch (error) {
+      console.error("Erro ao carregar tarefas:", error);
+      tasks = [];
+    }
+  }
+
+  if (savedCounter) {
+    taskIdCounter = parseInt(savedCounter);
+  }
+}
+
+function saveTasksToStorage() {
+  try {
+    localStorage.setItem("optiplus_tasks", JSON.stringify(tasks));
+    localStorage.setItem("optiplus_task_counter", taskIdCounter.toString());
+  } catch (error) {
+    console.error("Erro ao salvar tarefas:", error);
+    showFeedback("Erro ao salvar tarefas!", "danger");
+  }
 }
 
 function bindEvents() {
@@ -50,6 +84,7 @@ function addTask(event) {
     });
     input.value = "";
     dateInput.value = "";
+    saveTasksToStorage();
     updateDisplay();
     showFeedback("Tarefa adicionada com sucesso!", "success");
   }
@@ -59,6 +94,7 @@ function toggleTask(taskId) {
   const task = tasks.find((t) => t.id === taskId);
   if (task) {
     task.completed = !task.completed;
+    saveTasksToStorage();
     updateDisplay();
     showFeedback(
       task.completed ? "Tarefa concluída!" : "Tarefa reaberta!",
@@ -69,6 +105,7 @@ function toggleTask(taskId) {
 
 function deleteTask(taskId) {
   tasks = tasks.filter((t) => t.id !== taskId);
+  saveTasksToStorage();
   updateDisplay();
   showFeedback("Tarefa removida!", "danger");
 }
@@ -257,6 +294,7 @@ function clearAllTasks() {
     confirm("Tem certeza que deseja remover todas as tarefas?")
   ) {
     tasks = [];
+    saveTasksToStorage();
     updateDisplay();
     showFeedback("Todas as tarefas foram removidas!", "warning");
   }
@@ -275,29 +313,28 @@ function getStats() {
   return { total, completed, pending, overdue, completionRate };
 }
 
+const chk = document.getElementById("chk");
 
-const chk = document.getElementById('chk');
-
-
-window.addEventListener('DOMContentLoaded', () => {
-  const theme = localStorage.getItem('theme');
-  if (theme === 'dark') {
-    document.body.classList.add('dark');
-    const form = document.querySelector('form');
+window.addEventListener("DOMContentLoaded", () => {
+  const theme = localStorage.getItem("optiplus_theme");
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    const form = document.querySelector("form");
     if (form) {
-      form.classList.add('dark');
+      form.classList.add("dark");
     }
-    chk.checked = true;
+    if (chk) chk.checked = true;
   }
 });
 
-chk.addEventListener('change', () => {
-  const isDark = chk.checked;
-  document.body.classList.toggle('dark', isDark);
-  const form = document.querySelector('form');
-  if (form) {
-    form.classList.toggle('dark', isDark);
-  }
-
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
+if (chk) {
+  chk.addEventListener("change", () => {
+    const isDark = chk.checked;
+    document.body.classList.toggle("dark", isDark);
+    const form = document.querySelector("form");
+    if (form) {
+      form.classList.toggle("dark", isDark);
+    }
+    localStorage.setItem("optiplus_theme", isDark ? "dark" : "light");
+  });
+}
