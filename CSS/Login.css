@@ -342,12 +342,11 @@ body.dark .form-check-label {
     padding: 1.5rem;
   }
 
-  .auth-header h1 {
-    font-size: 1.8rem;
-  }
-
   .label {
     transform: scale(1.2);
+  }
+  .auth-header h1 {
+    font-size: 1.8rem;
   }
 
   .home-btn {

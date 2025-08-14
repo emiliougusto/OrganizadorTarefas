@@ -291,7 +291,7 @@ function addToastStyles() {
 function clearAllTasks() {
   if (
     tasks.length > 0 &&
-    confirm("Tem certeza que deseja remover todas as tarefas?")
+    confirm("tem certeza que deseja remover todas as tarefas?")
   ) {
     tasks = [];
     saveTasksToStorage();
